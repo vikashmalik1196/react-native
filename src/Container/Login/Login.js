@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 import { CustomInput, CustomButton, CustomHeader, DisplayImage } from '../../component';
+import  ONBOARDING from '../../Config/Constant/Constant'
+
 
 const Login = ({ navigation }) => {
   const handleToSubmit = () => {
-    navigation.navigate('Signup')
+    navigation.navigate(ONBOARDING.SIGNUP)
   }
   return (
     <>
