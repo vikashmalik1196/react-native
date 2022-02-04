@@ -1,19 +1,24 @@
 import React from 'react'
-import { TextInput as PaperInput} from 'react-native-paper';
+import { View } from 'react-native';
+import { TextInput as PaperInput } from 'react-native-paper';
 
-const CustomInput = ({label,placeholder,onChangeText}) => {
+const CustomInput = ({ label, placeholder, onChangeText, type }) => {
 
 
   return (
     <>
-      <PaperInput
-          mode='flat'
-          label={label}
-          placeholder={placeholder}
-          onChangeText={text => onChangeText(text)}
-          style={{backgroundColor:"#0586A9"}}
-        />
-      
+      <View style={{ margin: 8 }}><PaperInput
+        mode='flat'
+        label={label}
+        placeholder={placeholder}
+        outlineColor="#ffffff"
+        activeOutlinecolor="black"
+        onChangeText={text => onChangeText(text)}
+        type={type}
+        style={{backgroundColor:"#E7E9EB"}}
+      /></View>
+
+
     </>
   );
 };

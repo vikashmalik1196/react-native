@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, Image } from 'react-native';
-import { CustomInput, CustomButton, CustomHeader, DisplayImage } from '../../component';
+import { View, Text, Image, StyleSheet } from 'react-native';
+import { CustomInput, CustomButton, CustomLabel } from '../../component';
 import ONBOARDING from '../../Config/Constant/Constant'
+
+
 
 
 const Login = ({ navigation }) => {
@@ -27,22 +29,25 @@ const Login = ({ navigation }) => {
   }
   return (
     <>
-      <View style={{ backgroundColor: "#0586A9" }}>
-        <CustomHeader title='HOME' />
-        <View style={{ padding: 10 }}>
-          <Image source={{ uri: 'https://pbs.twimg.com/profile_images/486929358120964097/gNLINY67_400x400.png' }}
-            style={{ width: 400, height: 400 }}
+
+      <View style={{backgroundColor: "white",height: "100%"}}>
+        <View style={{ marginTop: "auto", marginBottom: "auto" }}>
+          <Image source={{ uri: 'https://i.ibb.co/gJwwCCr/mha.jpg' }}
+            style={{ width: 200, height: 200, marginLeft: "auto", marginRight: "auto" }}
           />
-          <CustomInput label="Enter Name" onChangeText={value => onChangeText({ name: 'userName', value })} />
-          <CustomInput label="Enter Father Name" onChangeText={value => onChangeText({ name: 'Password', value })} />
+          <CustomLabel label="SIGN IN" />
+          <CustomInput label="Email" onChangeText={value => onChangeText({ name: 'Password', value })} />
+          <CustomInput label="Password" onChangeText={value => onChangeText({ name: 'Password', value })} />
           <CustomButton btnName="Press Me" onPress={handleToSubmit} />
         </View>
       </View>
+
+
     </>
-  )
 
+  );
+ 
 }
-
 
 
 
