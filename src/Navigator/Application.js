@@ -12,13 +12,12 @@ const Application = () => {
     <SafeAreaProvider>
       <NavigationContainer ref={navigationRef}>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Login" component={Login} />  
-            {/* <Stack.Screen name="Signup" component={Signup} /> */}
-          {/* {Route.map((item, index) => (
+          <Stack.Screen name="Login" component={Login} />
+          {/* <Stack.Screen name="Signup" component={Signup} /> */}
+          {Route.map((item, index) => (
             <Stack.Screen key={index} name={item.name} component={item.component} />
           ))
-          }   test */}
-
+          }
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

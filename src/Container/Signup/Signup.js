@@ -29,16 +29,12 @@ const Signup = ({ navigation }) => {
 
   }
 
-
-
-
   return (
     <>
       <ScrollView>
         <View style={{ backgroundColor: "#1ABC9C" }}>
           <CustomLabel label="SIGN UP" />
           <View style={{ backgroundColor: "white", height: "100%", marginTop: 100, marginBottom: 0, borderRadius: 30 }}>
-
             <View style={{ marginTop: 20 }}>
               <Image source={uri}
                 style={{ width: 150, height: 150, marginLeft: "auto", marginRight: "auto" }}
@@ -46,7 +42,6 @@ const Signup = ({ navigation }) => {
               <CustomLabel label="SIGN UP" />
               <CustomInput
                 label="Name"
-
                 onChangeText={value => onChangeText({ name: 'name', value })}
               />
               <CustomInput
