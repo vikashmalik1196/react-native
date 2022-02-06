@@ -24,6 +24,7 @@ const Login = ({ navigation }) => {
 
 
   const handleToSubmit = () => {
+    alert("Login Success")
     navigation.navigate(ONBOARDING.SIGNUP)
   }
   const uri = { uri: 'https://i.ibb.co/gJwwCCr/mha.jpg' };
