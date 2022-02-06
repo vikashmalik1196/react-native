@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, Text, } from 'react-native';
 import { CustomInput, CustomButton, CustomLabel } from '../../component';
 import ONBOARDING from '../../Config/Constant/Constant'
 
@@ -7,15 +7,21 @@ const Login = ({ navigation }) => {
   const [text, setText] = useState("")
   const [form, setForm] = useState({});
 
+
   const onChangeText = ({ name, value }) => {
-    setText(value)
-    setForm(prevState => {
-      return {
-        ...prevState, [name]: value
-      }
-    })
-    console.log(form)
+    if (value.length !== 0) {
+      setText(value)
+      setForm(prevState => {
+        return {
+          ...prevState, [name]: value
+        }
+      })
+    }
+    console.log(form.email)
+    console.log(form.password)
   }
+
+
 
   const handleToSubmit = () => {
     navigation.navigate(ONBOARDING.SIGNUP)
@@ -26,21 +32,18 @@ const Login = ({ navigation }) => {
     <View style={{ backgroundColor: "#1ABC9C" }}>
       <View style={styles.subcontainer}>
         <View style={{ marginTop: 20 }}>
-          <Image source={uri}style={styles.image}
-          />
+          <Image source={uri} style={styles.image} />
           <CustomLabel label="SIGN IN" />
-
           <CustomInput
             label="Email"
             keyboardType='email-address'
-            onChangeText={value => onChangeText({ name: 'Password', value })}
+            onChangeText={value => onChangeText({ name: 'email', value })}
           />
           <CustomInput
             label="Password"
             secureTextEntry={true}
-            onChangeText={value => onChangeText({ name: 'Password', value })}
+            onChangeText={value => onChangeText({ name: 'password', value })}
           />
-
           <CustomLabel label="Forget Password?" />
           <CustomButton btnName="Press Me" onPress={handleToSubmit} />
         </View>
@@ -61,6 +64,13 @@ const styles = StyleSheet.create({
     height: 150,
     marginLeft: "auto",
     marginRight: "auto"
+  },
+  errorMsg: {
+    color: "red",
+    marginBottom: 10,
+    fontWeight: "bold",
+    marginLeft: 7
+
   }
 });
 
