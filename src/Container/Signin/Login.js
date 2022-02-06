@@ -3,13 +3,9 @@ import { View, Image } from 'react-native';
 import { CustomInput, CustomButton, CustomLabel } from '../../component';
 import ONBOARDING from '../../Config/Constant/Constant'
 
-
-
-
 const Login = ({ navigation }) => {
   const [text, setText] = useState("")
   const [form, setForm] = useState({});
-
 
   const onChangeText = ({ name, value }) => {
     setText(value)
@@ -18,16 +14,12 @@ const Login = ({ navigation }) => {
         ...prevState, [name]: value
       }
     })
+    console.log(form)
   }
 
   const handleToSubmit = () => {
-
-    // alert(text)
-    // console.log("form@@@@", form.userName)
     navigation.navigate(ONBOARDING.SIGNUP)
-
   }
-
   return (
     <>
       <View style={{ backgroundColor: "#1ABC9C" }}>
@@ -50,8 +42,5 @@ const Login = ({ navigation }) => {
   );
 
 }
-
-
-
 
 export default Login;

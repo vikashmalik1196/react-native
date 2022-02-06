@@ -7,7 +7,8 @@ const CustomInput = ({ label, placeholder, onChangeText, type }) => {
 
   return (
     <>
-      <View style={{ margin: 8 }}><PaperInput
+      <View style={{ margin: 8 }}>
+        <PaperInput
         mode='flat'
         label={label}
         placeholder={placeholder}
@@ -22,26 +23,6 @@ const CustomInput = ({ label, placeholder, onChangeText, type }) => {
     </>
   );
 };
-
-
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 50,
-  },
-  bigBlue: {
-    color: 'blue',
-    fontWeight: 'bold',
-    fontSize: 30,
-  },
-  red: {
-    color: 'red',
-  },
-});
-
-
-
-
 
 
 export default CustomInput;

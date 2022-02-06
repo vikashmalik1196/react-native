@@ -1,5 +1,5 @@
 const ONBOARDING = {
-  SIGNUP: 'Signup'
+  SIGNUP: 'Signup',
 }
 
 export default ONBOARDING;
