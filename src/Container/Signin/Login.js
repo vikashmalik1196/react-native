@@ -29,8 +29,18 @@ const Login = ({ navigation }) => {
               style={{ width: 150, height: 150, marginLeft: "auto", marginRight: "auto" }}
             />
             <CustomLabel label="SIGN IN" />
-            <CustomInput label="Email" onChangeText={value => onChangeText({ name: 'Password', value })} />
-            <CustomInput label="Password" onChangeText={value => onChangeText({ name: 'Password', value })} />
+
+            <CustomInput
+              label="Email"
+              keyboardType='email-address' 
+              onChangeText={value => onChangeText({ name: 'Password', value })}
+            />
+            <CustomInput
+              label="Password"
+              secureTextEntry={true}
+              onChangeText={value => onChangeText({ name: 'Password', value })}
+            />
+
             <CustomLabel label="Forget Password?" />
             <CustomButton btnName="Press Me" onPress={handleToSubmit} />
           </View>
