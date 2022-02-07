@@ -30,15 +30,20 @@ const Signup = ({ navigation }) => {
       password: form.password
 
     };
+
     try {
       let response = await fetch(
         "http://192.168.0.54/Testproject/",
         {
           method: "POST",
-          body: data
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
         }
       );
-
+console.log(response)
     }
     catch (errors) {
 
@@ -53,7 +58,7 @@ const Signup = ({ navigation }) => {
   const handleSubmit = () => {
     registerUser();
     alert("User Registered")
-    console.log("@@@name", form.name)
+    console.log("@@@name", form.username)
     console.log("@@@name", form.email)
     console.log("@@@name", form.phone)
     console.log("@@@name", form.password)
