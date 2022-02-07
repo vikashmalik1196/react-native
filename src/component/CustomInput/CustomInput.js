@@ -43,9 +43,4 @@ CustomInput.defaultProps = {
 }
 
 
-
-
-
-
-
 export default CustomInput;

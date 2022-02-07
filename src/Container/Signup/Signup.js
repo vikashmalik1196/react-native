@@ -21,7 +21,38 @@ const Signup = ({ navigation }) => {
 
   }
 
+  //making network call
+  const registerUser = async () => {
+    var data = {
+      username: form.username,
+      email: form.email,
+      phone: form.phone,
+      password: form.password
+
+    };
+    try {
+      let response = await fetch(
+        "http://192.168.0.54/Testproject/",
+        {
+          method: "POST",
+          body: data
+        }
+      );
+
+    }
+    catch (errors) {
+
+      alert(errors);
+    }
+  }
+
+
+
+
+
   const handleSubmit = () => {
+    registerUser();
+    alert("User Registered")
     console.log("@@@name", form.name)
     console.log("@@@name", form.email)
     console.log("@@@name", form.phone)
@@ -42,22 +73,22 @@ const Signup = ({ navigation }) => {
               <CustomLabel label="SIGN UP" />
               <CustomInput
                 label="Name"
-                onChangeText={value => onChangeText({ name: 'name', value })}
+                onChangeText={value => onChangeText({ name: 'username', value })}
               />
               <CustomInput
                 label="Email"
-                keyboardType='email-address' 
-                onChangeText={value => onChangeText({ name: 'email', value })} 
+                keyboardType='email-address'
+                onChangeText={value => onChangeText({ name: 'email', value })}
               />
               <CustomInput
-                label="Phone" 
+                label="Phone"
                 keyboardType='phone-pad'
-                onChangeText={value => onChangeText({ name: 'phone', value })} 
+                onChangeText={value => onChangeText({ name: 'phone', value })}
               />
-              <CustomInput 
-              label="Password"
-              secureTextEntry={true} 
-              onChangeText={value => onChangeText({ name: 'password', value })} 
+              <CustomInput
+                label="Password"
+                secureTextEntry={true}
+                onChangeText={value => onChangeText({ name: 'password', value })}
               />
               <CustomButton btnName="Register" onPress={handleSubmit} />
             </View>
