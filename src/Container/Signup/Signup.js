@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, Image, ScrollView } from 'react-native';
+import { View, Image, ScrollView,Alert } from 'react-native';
 import { CustomInput, CustomButton, CustomLabel } from '../../component';
+import Api from '../../service';
 
 
 const Signup = ({ navigation }) => {
@@ -18,11 +19,9 @@ const Signup = ({ navigation }) => {
         ...prevState, [name]: value
       }
     })
-
   }
 
-  //making network call
-  const registerUser = async () => {
+  const handleSubmit = async () => {
     var data = {
       username: form.username,
       email: form.email,
@@ -30,39 +29,10 @@ const Signup = ({ navigation }) => {
       password: form.password
 
     };
-
-    try {
-      let response = await fetch(
-        "http://192.168.0.54/Testproject/",
-        {
-          method: "POST",
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        }
-      );
-console.log(response)
+    let response = await Api.create('Testproject/', data)
+    if (response.status) {
+      Alert.alert(response.msg)
     }
-    catch (errors) {
-
-      alert(errors);
-    }
-  }
-
-
-
-
-
-  const handleSubmit = () => {
-    registerUser();
-    alert("User Registered")
-    console.log("@@@name", form.username)
-    console.log("@@@name", form.email)
-    console.log("@@@name", form.phone)
-    console.log("@@@name", form.password)
-
   }
 
   return (
