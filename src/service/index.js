@@ -25,8 +25,9 @@ async function request(
             options.body = JSON.stringify(params)
         }
     }
-    const response = await fetch(_apiHost + url, options).catch(handleError)
     console.log('_apiHost: ', JSON.stringify(_apiHost + url))
+    const response = await fetch(_apiHost + url, options).catch(handleError)
+
     if (response.status !== 200) {
         return handleError('The server responded with an unexpected status.')
     }

@@ -3,7 +3,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { navigationRef } from './utils';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Login, Signup } from '../Container';
+import { Login, Signup,Profile } from '../Container';
 import Route from '../Config/Route/Route';
 
 const Stack = createNativeStackNavigator();
