@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { View, Text } from "react-native";
+import React, { useState ,useEffect} from "react";
+import { View, Text, FlatList } from "react-native";
 import DropDownPicker from 'react-native-dropdown-picker';
 import { CustomCard, CustomLabel, CustomButton } from '../../component';
 import Api from '../../service';
@@ -13,31 +13,38 @@ const Profile = () => {
     { label: 'All', value: '' },
     { label: '13', value: '13' },
     { label: '26', value: '26' },
-
-
   ]);
 
-  const handleSubmit = async () => {
-
-  }
-
-
-
-  const onChangeValue = async (value) => {
+  const getUserData = async(value)=>{
+    
     var data = {
       regId: value,
     };
     // let response = await Api.get('userList.php', data)
     let response = await Api.create('userList.php', data)
-    console.log(response)
     if (response.status) {
       getData(response.responseData)
     }
   }
 
+  const onChangeValue = async (value) => {
+    getUserData(value)
+  }
+
+  const renderItem = ({ item, index }) => {
+    return (
+      <CustomCard key={index} username={"Name: " + item.user_name} email={"Email: " + item.email} phone={"Phone: " + item.phone} />
+    )
+  }
+
+  useEffect(() => {
+    getUserData('')
+  },[]);
+
 
   return (
-    <View style={{ padding: 5 }}>
+    // <ScrollView style={{ padding: 10 }}>
+    <>
       <CustomLabel label='Users Registered' />
       <DropDownPicker
         open={open}
@@ -50,9 +57,18 @@ const Profile = () => {
         style={{ padding: 10 }}
       />
 
-      <CustomCard username="Dummy" email="xyz@stl.com" phone='123' />
-      <CustomButton btnName='Find User' onPress={handleSubmit} />
-    </View>
+      {/* {data.map((item, index) => (
+          <CustomCard key={index} username={"Name: " + item.user_name} email={"Email: " + item.email} phone={"Phone: " + item.phone} />
+        ))} */}
+
+      <FlatList
+        data={data}
+
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+      />
+
+    </>
   )
 };
 
