@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { CustomSelect } from '../../component';
+import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
+import { CustomSelect ,CustomCard} from '../../component';
 
 const Profile = () => (
-  <View >
+  <View  style={{padding:5}}>
     <CustomSelect />
+    <CustomCard/>
   </View>
 );
 
