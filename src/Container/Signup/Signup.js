@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Image, ScrollView,Alert } from 'react-native';
+import { View, Image, ScrollView, Alert } from 'react-native';
 import { CustomInput, CustomButton, CustomLabel } from '../../component';
 import Api from '../../service';
 import ONBOARDING from '../../Config/Constant/Constant'
@@ -22,8 +22,7 @@ const Signup = ({ navigation }) => {
     })
   }
 
-  const handleSubmit = async () => {
-    navigation.navigate(ONBOARDING.PROFILE)
+  const registerUser = async () => {
     var data = {
       username: form.username,
       email: form.email,
@@ -36,7 +35,24 @@ const Signup = ({ navigation }) => {
       Alert.alert(response.msg)
       // navigation.navigate(ONBOARDING.PROFILE)
     }
+  }
+
+  const handleSubmit = async () => {
+    // registerUser()
+    navigation.navigate(ONBOARDING.PROFILE)
     
+    // var data = {
+    //   username: form.username,
+    //   email: form.email,
+    //   phone: form.phone,
+    //   password: form.password
+
+    // };
+    // let response = await Api.create('userRegister.php', data)
+    // if (response.status) {
+    //   Alert.alert(response.msg)
+    // }
+
   }
 
   return (

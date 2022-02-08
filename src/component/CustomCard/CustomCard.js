@@ -1,16 +1,16 @@
 import React from 'react';
-import { View, Text ,ScrollView} from 'react-native';
-import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
+import {  Card, Title, Paragraph } from 'react-native-paper';
+import PropTypes from 'prop-types'
 
-
-const CustomCard = () => {
+const CustomCard = ({username,email,phone}) => {
 return(
   <>
  <Card style={{margin:5}}>
- <Card.Title title="Card Title" subtitle="Card Subtitle"  />
+ {/* <Card.Title title="Username" subtitle="Phone"  /> */}
     <Card.Content>
-      <Title>Card title</Title>
-      <Paragraph>Card content</Paragraph>
+      <Title>{username}</Title>
+      <Paragraph>{email}</Paragraph>
+      <Paragraph>{phone}</Paragraph>
     </Card.Content>
  </Card>
   </>

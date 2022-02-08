@@ -21,6 +21,10 @@ const CustomSelect = () => {
       setOpen={setOpen}
       setValue={setValue}
       setItems={setItems}
+      onChangeValue={(value) => {
+        console.log("@@value ",value);
+      }}
+
       style={{ padding: 10 }}
     />
   );

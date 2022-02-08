@@ -17,8 +17,6 @@ const Login = ({ navigation }) => {
         }
       })
     }
-    console.log(form.email)
-    console.log(form.password)
   }
 
 
