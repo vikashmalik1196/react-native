@@ -1,5 +1,5 @@
-import  ONBOARDING from '../Constant/Constant'
-import { Signup ,Profile} from '../../Container';
+import ONBOARDING from '../Constant/Constant'
+import { Signup, Profile, Register ,Otp} from '../../Container';
 
 
 const Route = [
@@ -10,6 +10,14 @@ const Route = [
     {
         name: ONBOARDING.PROFILE,
         component: Profile,
-      },
+    },
+    // {
+    //     name: ONBOARDING.REGISTER,
+    //     component: Register,
+    // },
+    {
+        name: ONBOARDING.OTP,
+        component: Otp,
+    },
 ]
 export default Route;

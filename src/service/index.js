@@ -25,15 +25,15 @@ async function request(
             options.body = JSON.stringify(params)
         }
     }
-    console.log('_apiHost: ', JSON.stringify(_apiHost + url))
+    // console.log('_apiHost: ', JSON.stringify(_apiHost + url))
     const response = await fetch(_apiHost + url, options).catch(handleError)
-    console.log("@@ check  ",response)
+    // console.log("@@ check  ",response)
     if (response.status !== 200) {
 
         return handleError('The server responded with an unexpected status.')
     }
     const result = await response.json()
-    console.log("Result@@@", result)
+    // console.log("Result@@@", result)
     return result
 }
 

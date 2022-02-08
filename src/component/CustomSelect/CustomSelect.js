@@ -8,10 +8,10 @@ const CustomSelect = () => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
-    { label: '1', value: '1' },
-    { label: '2', value: '2' },
-    { label: '3', value: '3' },
-    { label: '4', value: '4' }
+    { label: 'Odissa', value: 'odissa' },
+    { label: 'Goa', value: 'goa' },
+    { label: 'Jharkhand', value: 'jharkhand' },
+    { label: 'Bihar', value: 'bihar' }
   ]);
   return (
     <DropDownPicker
@@ -25,7 +25,7 @@ const CustomSelect = () => {
         console.log("@@value ",value);
       }}
 
-      style={{ padding: 10 }}
+      style={{padding:10}}
     />
   );
 }
