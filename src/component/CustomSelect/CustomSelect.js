@@ -4,7 +4,7 @@ import DropDownPicker from 'react-native-dropdown-picker';
 
 
 
-const CustomSelect = () => {
+const CustomSelect = ({onChangeText}) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
@@ -21,9 +21,7 @@ const CustomSelect = () => {
       setOpen={setOpen}
       setValue={setValue}
       setItems={setItems}
-      onChangeValue={(value) => {
-        console.log("@@value ",value);
-      }}
+      onChangeValue={text => onChangeText(text)}
 
       style={{padding:10}}
     />
